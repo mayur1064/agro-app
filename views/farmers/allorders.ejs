@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+
+<a href="/farmer" class = "btn btn-success mr-3 mb-3 ">&#x2B9C; Back</a>
+
+<h1>Your Orders</h1>
+
+<% for (let order of orders){%>
+<div class="card" mb-3>
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid" alt="" src="<%=order.product.images[0].url%>">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= order.product.name %> </h5>
+                <p class="card-text"><b>Quantity - </b><%= order.quantity %></p>
+                <p class="card-text"><b>Seller - </b><%= order.supplier.username %></p>
+                <p class="card-text"><b>Status - </b><%= order.status %></p>
+                
+                <a class="btn btn-primary" href="/farmer/orders/<%=order._id%>">Show Order</a>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>

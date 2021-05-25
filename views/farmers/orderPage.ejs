@@ -1,0 +1,90 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center">Order Details</h1>
+    <div class="col-md-6 offset-md-3">
+        <!-- <p>Product Name - <%= product.name %> </p>
+        <p>Product Price - Rs <%= product.price %> </p>
+        <p>Quantity Available - <%= product.quantity %> </p>
+        <p>Please Enter Quantity less than available</p> -->
+
+        <div class="card mb-3 card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Product Name - </b><%= product.name%></li>
+                <li class="list-group-item"><b>Product Price - </b><span>&#8377;</span><%= product.price%></li>
+                <li class="list-group-item"><b>Quantity Available - </b><%= product.quantity%></li>
+                <li class="list-group-item text-muted"><b>Please Enter Quantity less than available</b></li>
+                
+            </ul>
+        </div>
+
+        <form action="/farmer/products/<%= product._id %>/order" method="POST" class="validated-form" novalidate>
+            
+            
+            <div class="mb-3">
+                <label class="form-label" for="quantity">Quantity </label>
+                <input class="form-control" type="number" id="quantity" name="order[quantity]" max = "<%= product.quantity %>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="street">Street </label>
+                <input class="form-control" type="text" id="street" name="order[street]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="landmark">Landmark </label>
+                <input class="form-control" type="text" id="landmark" name="order[landmark]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="city">City </label>
+                <input class="form-control" type="text" id="city" name="order[city]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="pincode">Pincode </label>
+                <input class="form-control" type="number" id="pincode" name="order[pincode]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            
+            <div class="mb-3">
+                <label class="form-label" for="contact">Contact </label>
+                <input class="form-control" type="number" id="contact" name="order[contact]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="payment">Payment Mode </label>
+                <select class = "form-control" name="order[payment]" id="payment">
+                    <option value="cash" >Cash on Delivery</option>
+                </select>
+                <div class="valid-feedback">
+                   Looks good!
+                </div>
+            </div>
+
+            
+
+            <div class="mb-3">
+                <button class="btn btn-success">Place Order</button>
+            </div>
+        </form>
+
+    </div>
+</div>
